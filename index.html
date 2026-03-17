@@ -3,8 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Thread Limit is a one-person AI studio building games and storytelling tools. Home of Nervejack and Storysplice.">
+<meta name="description" content="Thread Limit is a one-person AI studio building games and storytelling tools. Home of Nervejack, Storysplice, and Texting.video.">
 <title>Thread Limit — AI Studio</title>
+<link rel="canonical" href="https://threadlimit.co/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thread Limit — AI Studio">
+<meta property="og:description" content="One-person AI studio building games and storytelling tools. Home of Nervejack, Storysplice, and Texting.video.">
+<meta property="og:url" content="https://threadlimit.co/">
+<meta property="og:site_name" content="Thread Limit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Thread Limit — AI Studio">
+<meta name="twitter:description" content="One-person AI studio building games and storytelling tools. Home of Nervejack, Storysplice, and Texting.video.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%2309090b'/><rect x='4' y='4' width='24' height='24' rx='3' fill='none' stroke='%23ff6b6b' stroke-width='2.5'/><rect x='11' y='11' width='10' height='10' rx='2' fill='%23ff6b6b'/></svg>">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TR5WWFNZQS"></script>
@@ -18,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@200;300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap"
 rel="stylesheet">
 <style>
   :root {
@@ -272,8 +281,6 @@ rel="stylesheet">
     line-height: 1.05;
     letter-spacing: -0.03em;
     margin-bottom: 28px;
-    opacity: 0;
-    animation: fadeUp 0.45s ease 0.18s forwards;
   }
 
   .hero h1 .dim { color: var(--text-dim); }
@@ -879,6 +886,102 @@ rel="stylesheet">
     .nav-links { right: 20px; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://threadlimit.co/#organization",
+      "name": "Thread Limit",
+      "url": "https://threadlimit.co",
+      "description": "A one-person AI studio building games and storytelling tools.",
+      "email": "colin@threadlimit.co",
+      "founder": { "@id": "https://threadlimit.co/#person" },
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "St. Albans",
+          "addressRegion": "VT",
+          "addressCountry": "US"
+        }
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://threadlimit.co/#person",
+      "name": "Colin",
+      "email": "colin@threadlimit.co",
+      "worksFor": { "@id": "https://threadlimit.co/#organization" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://threadlimit.co/#website",
+      "name": "Thread Limit",
+      "url": "https://threadlimit.co",
+      "publisher": { "@id": "https://threadlimit.co/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://threadlimit.co/",
+      "name": "Thread Limit — AI Studio",
+      "description": "Thread Limit is a one-person AI studio building games and storytelling tools. Home of Nervejack, Storysplice, and Texting.video.",
+      "url": "https://threadlimit.co",
+      "isPartOf": { "@id": "https://threadlimit.co/#website" },
+      "about": { "@id": "https://threadlimit.co/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://threadlimit.co/#nervejack",
+      "name": "Nervejack",
+      "description": "An AI-driven cyberpunk RPG set in the collapsing megastructure of Neo Kowloon, featuring over 160 dynamically-driven NPCs across 7 sectors.",
+      "url": "https://nervejack.gg",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "author": { "@id": "https://threadlimit.co/#organization" },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://threadlimit.co/#storysplice",
+      "name": "Storysplice",
+      "description": "A platform for building branching interactive fiction with AI writing tools and a visual story map.",
+      "url": "https://storysplice.app",
+      "applicationCategory": "EntertainmentApplication",
+      "operatingSystem": "Web",
+      "author": { "@id": "https://threadlimit.co/#organization" },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://threadlimit.co/#textingvideo",
+      "name": "Texting.video",
+      "description": "A browser-based tool for creating fake text message conversation videos for TikTok, Reels, and Shorts with 8 chat themes.",
+      "url": "https://texting.video",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web",
+      "author": { "@id": "https://threadlimit.co/#organization" },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -916,7 +1019,7 @@ rel="stylesheet">
         <p class="hero-tag"><abbr title="Vermont">VT</abbr>, St. Albans</p>
         <h1>I build worlds<br><span class="dim">one person can't build</span> <span class="accent">alone.</span></h1>
         <p class="hero-desc">
-          I make games and storytelling tools with <abbr title="Artificial Intelligence">AI</abbr> — not to replace the creative voice, but to stretch what one person can pull&nbsp;off.
+          Thread Limit is a one-person <abbr title="Artificial Intelligence">AI</abbr> studio based in St. Albans, Vermont. I make games and storytelling tools with AI — not to replace the creative voice, but to stretch what one person can pull&nbsp;off.
         </p>
         <div class="hero-actions">
           <a href="#nervejack" class="btn-ghost">
@@ -939,7 +1042,7 @@ rel="stylesheet">
         <h2 class="showcase-name">Nervejack</h2>
         <p class="showcase-tagline">Every decision bleeds.</p>
         <p class="showcase-pitch">
-          An <abbr title="Artificial Intelligence">AI</abbr>-driven cyberpunk <abbr title="Role-Playing Game">RPG</abbr> set in the collapsing sprawl of Neo Kowloon. Every <abbr title="Non-Player Character">NPC</abbr> thinks for themselves, every faction remembers what you did, and no two playthroughs play out the same&nbsp;way.
+          Nervejack is an <abbr title="Artificial Intelligence">AI</abbr>-driven cyberpunk <abbr title="Role-Playing Game">RPG</abbr> built by Thread Limit and set in the collapsing megastructure of Neo Kowloon. The game features over 160 dynamically-driven <abbr title="Non-Player Characters">NPCs</abbr> spread across 7 distinct sectors, each with their own agendas, memories, and allegiances. Every character thinks for themselves using AI — they remember what you did, hold grudges, and change their behavior based on your choices. Factions track your reputation in real time, and the ripple effects of a single conversation can reshape the political landscape of an entire district. There are no scripted outcomes and no two playthroughs play out the same way. Nervejack is playable now in your browser at nervejack.gg.
         </p>
       </div>
 
@@ -994,7 +1097,7 @@ rel="stylesheet">
         <h2 class="showcase-name">Storysplice</h2>
         <p class="showcase-tagline">Your story. Infinite paths.</p>
         <p class="showcase-pitch">
-          A platform for building branching interactive fiction. You set the vision, <abbr title="Artificial Intelligence">AI</abbr> helps fill the spaces between — giving one writer the reach of a whole writing&nbsp;room.
+          Storysplice is a platform for building branching interactive fiction, developed by Thread Limit. Writers use a visual story map to design narrative paths that fork, merge, and loop — creating choose-your-own-adventure experiences with real depth. <abbr title="Artificial Intelligence">AI</abbr> writing tools help fill the spaces between key plot points, generating transitional scenes, dialogue variations, and alternate endings so a single author can produce the volume of content that would normally require an entire writing room. Finished stories are published to a community library where readers can explore and play through them. Storysplice runs entirely in the browser with no downloads or installs required, and is free to start creating at storysplice.app.
         </p>
       </div>
 
@@ -1084,7 +1187,7 @@ rel="stylesheet">
         <h2 class="showcase-name">Texting.video</h2>
         <p class="showcase-tagline">Fake texts, real videos.</p>
         <p class="showcase-pitch">
-          A browser-based tool for creating text message conversation videos for TikTok, Reels, and Shorts. Pick a theme, write the convo, export the&nbsp;video.
+          Texting.video is a browser-based tool built by Thread Limit for creating fake text message conversation videos optimized for short-form social platforms like TikTok, Instagram Reels, and YouTube Shorts. Users choose from 8 realistic chat themes — including iMessage, Discord, Slack, Android, Microsoft Teams, Terminal, <abbr title="Japanese Role-Playing Game">JRPG</abbr>, and True Crime — then script a conversation with animated typing indicators, emoji reactions, and read receipts. The finished video exports as MP4 or WebM in vertical format, ready to post. No app install is needed — everything runs in the browser. Texting.video is free to use with WebM exports, and a Pro plan at $9/month unlocks unlimited MP4 exports, link previews, and image attachments. Try it free at texting.video.
         </p>
       </div>
 
@@ -1236,7 +1339,7 @@ rel="stylesheet">
       });
     }, { threshold: 0.05 });
 
-    document.querySelectorAll('.showcase-header, .showcase-stats, .showcase-features, .terminal, .branch-diagram, .showcase-cta, .cta h2, .cta p, .cta .btn-primary, .cta-projects').forEach((el, i) => {
+    document.querySelectorAll('.showcase-header, .showcase-stats, .showcase-features, .terminal, .branch-diagram, .phone-mockup, .showcase-cta, .cta h2, .cta p, .cta .btn-primary, .cta-projects').forEach((el, i) => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(14px)';
       el.style.transition = 'opacity 0.35s ease ' + (i * 0.03) + 's, transform 0.35s ease ' + (i * 0.03) + 's';

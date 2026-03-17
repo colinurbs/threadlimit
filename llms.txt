@@ -1,0 +1,14 @@
+# Thread Limit
+
+> Thread Limit is a one-person AI studio based in St. Albans, Vermont, building games and storytelling tools. Founded by Colin.
+
+## Products
+
+- [Nervejack](https://nervejack.gg): An AI-driven cyberpunk RPG set in the collapsing megastructure of Neo Kowloon. Features over 160 dynamically-driven NPCs across 7 sectors. Every character thinks for themselves using AI, remembers player actions, and changes behavior accordingly. No two playthroughs are the same. Free to play in the browser.
+- [Storysplice](https://storysplice.app): A platform for building branching interactive fiction. Writers use a visual story map to design forking narrative paths. AI writing tools help generate transitional scenes, dialogue variations, and alternate endings. Published stories are available in a community library. Free to use in the browser.
+- [Texting.video](https://texting.video): A browser-based tool for creating fake text message conversation videos for TikTok, Instagram Reels, and YouTube Shorts. 8 chat themes including iMessage, Discord, Slack, Android, Teams, Terminal, JRPG, and True Crime. Features animated typing indicators, emoji reactions, and read receipts. Exports to MP4 and WebM. Free tier available, Pro plan at $9/month.
+
+## Contact
+
+- Email: colin@threadlimit.co
+- Website: https://threadlimit.co

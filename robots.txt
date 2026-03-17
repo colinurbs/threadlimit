@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# AI search crawlers — allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# AI training-only crawlers — blocked
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+Sitemap: https://threadlimit.co/sitemap.xml
