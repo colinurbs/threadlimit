@@ -1,12 +1,17 @@
 # Thread Limit
 
-> Thread Limit is a one-person AI studio based in St. Albans, Vermont, building games and storytelling tools. Founded by Colin.
+> Thread Limit is a one-person studio based in St. Albans, Vermont, building games, tools, and interactive experiences. Founded by Colin.
 
-## Products
+## Projects
 
+- [1787.live](https://1787.live): The 1787 Constitutional Convention replayed as a modern group chat. 10,000 messages from 55 delegates, mapped to present-day dates and streaming in near-realtime. Free to watch in the browser.
 - [Nervejack](https://nervejack.gg): An AI-driven cyberpunk RPG set in the collapsing megastructure of Neo Kowloon. Features over 160 dynamically-driven NPCs across 7 sectors. Every character thinks for themselves using AI, remembers player actions, and changes behavior accordingly. No two playthroughs are the same. Free to play in the browser.
 - [Storysplice](https://storysplice.app): A platform for building branching interactive fiction. Writers use a visual story map to design forking narrative paths. AI writing tools help generate transitional scenes, dialogue variations, and alternate endings. Published stories are available in a community library. Free to use in the browser.
-- [Texting.video](https://texting.video): A browser-based tool for creating fake text message conversation videos for TikTok, Instagram Reels, and YouTube Shorts. 8 chat themes including iMessage, Discord, Slack, Android, Teams, Terminal, JRPG, and True Crime. Features animated typing indicators, emoji reactions, and read receipts. Exports to MP4 and WebM. Free tier available, Pro plan at $9/month.
+
+## Tools
+
+- [Texting.video](https://texting.video): A browser-based tool that turns scripted text conversations into vertical videos for TikTok, Instagram Reels, and YouTube Shorts. 10 chat themes including iMessage-style Blue Bubble, Discord, Slack, Terminal, JRPG, and True Crime. Typing indicators, reactions, sound effects, and AI integration via JSON import or MCP server. Exports MP4 or WebM at 1080x1920. Free with watermark, Pro plan at $9/month.
+- [MotionText](https://motiontext.video): A browser-based video studio for lyric videos, kinetic captions, and narrated photo stories. Timeline editor with 0.1-second precision, lyric sync with SRT/VTT/LRC import, and an AI Director that paces scenes to audio. Exports MP4 in 16:9, 9:16, or 1:1. Free with watermark, Pro plan at $9/month.
 
 ## Contact
 
