@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Thread Limit is a one-person AI studio building games and storytelling tools. Home of Nervejack, Storysplice, and Texting.video.">
-<title>Thread Limit — AI Studio</title>
+<meta name="description" content="Thread Limit is a one-person studio building games, tools, and interactive experiences. Home of 1787.live, Nervejack, and Storysplice.">
+<title>Thread Limit — Studio</title>
 <link rel="canonical" href="https://threadlimit.co/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Thread Limit — AI Studio">
-<meta property="og:description" content="One-person AI studio building games and storytelling tools. Home of Nervejack, Storysplice, and Texting.video.">
+<meta property="og:title" content="Thread Limit — Studio">
+<meta property="og:description" content="One-person studio building games, tools, and interactive experiences. Home of 1787.live, Nervejack, and Storysplice.">
 <meta property="og:url" content="https://threadlimit.co/">
 <meta property="og:site_name" content="Thread Limit">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Thread Limit — AI Studio">
-<meta name="twitter:description" content="One-person AI studio building games and storytelling tools. Home of Nervejack, Storysplice, and Texting.video.">
+<meta name="twitter:title" content="Thread Limit — Studio">
+<meta name="twitter:description" content="One-person studio building games, tools, and interactive experiences. Home of 1787.live, Nervejack, and Storysplice.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%2309090b'/><rect x='4' y='4' width='24' height='24' rx='3' fill='none' stroke='%23ff6b6b' stroke-width='2.5'/><rect x='11' y='11' width='10' height='10' rx='2' fill='%23ff6b6b'/></svg>">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TR5WWFNZQS"></script>
@@ -49,6 +49,10 @@ rel="stylesheet">
     --blue-btn: #3b82f6;
     --blue-glow: rgba(96, 165, 250, 0.15);
     --blue-text: #0c1a2e;
+    --amber: #f59e0b;
+    --amber-btn: #d97706;
+    --amber-glow: rgba(245, 158, 11, 0.15);
+    --amber-text: #1c1108;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -99,23 +103,7 @@ rel="stylesheet">
 
   /* ============ GRID BACKGROUND ============ */
   .grid-bg {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 64px 64px;
-  }
-
-  .grid-bg::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: radial-gradient(ellipse at 50% 0%, rgba(255, 107, 107, 0.04) 0%, transparent 60%);
+    display: none;
   }
 
   /* ============ CONTENT ============ */
@@ -248,10 +236,46 @@ rel="stylesheet">
     display: flex;
     align-items: center;
     padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 20%, var(--bg) 75%);
+  }
+
+  .hero .container {
+    position: relative;
+    z-index: 2;
+  }
+
+
+  .hero-content {
+    text-shadow: 0 2px 20px rgba(9, 9, 11, 0.8), 0 0 40px rgba(9, 9, 11, 0.6);
   }
 
   .hero-content {
     max-width: 680px;
+  }
+
+  .hero-content * {
+    text-shadow: inherit;
   }
 
   .hero-tag {
@@ -360,6 +384,20 @@ rel="stylesheet">
     outline-color: var(--blue);
   }
 
+  .btn-amber {
+    background: var(--amber-btn);
+    color: #fff;
+  }
+
+  .btn-amber:hover {
+    box-shadow: 0 0 24px var(--amber-glow), 0 4px 12px rgba(0,0,0,0.3);
+    transform: translateY(-1px);
+  }
+
+  .btn-amber:focus-visible {
+    outline-color: var(--amber);
+  }
+
   .btn-ghost {
     display: inline-flex;
     align-items: center;
@@ -400,15 +438,19 @@ rel="stylesheet">
   }
 
   .showcase-nervejack::before {
-    background: radial-gradient(ellipse at 80% 20%, rgba(255, 107, 107, 0.04) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 80% 20%, rgba(52, 211, 153, 0.04) 0%, transparent 60%);
   }
 
   .showcase-storysplice::before {
-    background: radial-gradient(ellipse at 20% 80%, rgba(52, 211, 153, 0.04) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 20% 80%, rgba(255, 107, 107, 0.04) 0%, transparent 60%);
   }
 
   .showcase-texting::before {
     background: radial-gradient(ellipse at 50% 50%, rgba(96, 165, 250, 0.04) 0%, transparent 60%);
+  }
+
+  .showcase-1787::before {
+    background: radial-gradient(ellipse at 80% 80%, rgba(245, 158, 11, 0.04) 0%, transparent 60%);
   }
 
   .showcase-header {
@@ -434,9 +476,10 @@ rel="stylesheet">
     display: inline-block;
   }
 
-  .showcase-nervejack .dot { background: var(--red); }
-  .showcase-storysplice .dot { background: var(--green); }
+  .showcase-nervejack .dot { background: var(--green); }
+  .showcase-storysplice .dot { background: var(--red); }
   .showcase-texting .dot { background: var(--blue); }
+  .showcase-1787 .dot { background: var(--amber); }
 
   .showcase-name {
     font-size: clamp(36px, 5vw, 56px);
@@ -446,9 +489,10 @@ rel="stylesheet">
     margin-bottom: 8px;
   }
 
-  .showcase-nervejack .showcase-name { color: var(--red); }
-  .showcase-storysplice .showcase-name { color: var(--green); }
+  .showcase-nervejack .showcase-name { color: var(--green); }
+  .showcase-storysplice .showcase-name { color: var(--red); }
   .showcase-texting .showcase-name { color: var(--blue); }
+  .showcase-1787 .showcase-name { color: var(--amber); }
 
   .showcase-tagline {
     font-family: 'Instrument Serif', serif;
@@ -964,20 +1008,14 @@ rel="stylesheet">
       }
     },
     {
-      "@type": "SoftwareApplication",
-      "@id": "https://threadlimit.co/#textingvideo",
-      "name": "Texting.video",
-      "description": "A browser-based tool for creating fake text message conversation videos for TikTok, Reels, and Shorts with 8 chat themes.",
-      "url": "https://texting.video",
-      "applicationCategory": "MultimediaApplication",
+      "@type": "WebApplication",
+      "@id": "https://threadlimit.co/#1787live",
+      "name": "1787.live",
+      "description": "The 1787 Constitutional Convention replayed as a modern group chat with 10,000 messages from 55 delegates streaming in near-realtime.",
+      "url": "https://1787.live",
+      "applicationCategory": "EducationalApplication",
       "operatingSystem": "Web",
-      "author": { "@id": "https://threadlimit.co/#organization" },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      }
+      "author": { "@id": "https://threadlimit.co/#organization" }
     }
   ]
 }
@@ -1004,9 +1042,9 @@ rel="stylesheet">
         <span></span>
       </button>
       <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#1787">1787.live</a></li>
         <li><a href="#nervejack">Nervejack</a></li>
         <li><a href="#storysplice">Storysplice</a></li>
-        <li><a href="#texting">Texting.video</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -1014,19 +1052,46 @@ rel="stylesheet">
 
   <!-- HERO -->
   <section class="hero" aria-label="Introduction">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-vignette" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-content">
         <p class="hero-tag"><abbr title="Vermont">VT</abbr>, St. Albans</p>
-        <h1>I build worlds<br><span class="dim">one person can't build</span> <span class="accent">alone.</span></h1>
+        <h1>I make things<br><span class="dim">that tell</span> <span class="accent">stories.</span></h1>
         <p class="hero-desc">
-          Thread Limit is a one-person <abbr title="Artificial Intelligence">AI</abbr> studio based in St. Albans, Vermont. I make games and storytelling tools with AI — not to replace the creative voice, but to stretch what one person can pull&nbsp;off.
+          Thread Limit is a one-person studio based in St. Albans, Vermont. I make games, tools, and interactive&nbsp;experiences.
         </p>
         <div class="hero-actions">
-          <a href="#nervejack" class="btn-ghost">
+          <a href="#1787" class="btn-ghost">
             See what I'm building
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1787.LIVE -->
+  <section class="showcase showcase-1787" id="1787" aria-label="1787.live project">
+    <div class="container">
+      <div class="showcase-header">
+        <div class="showcase-label">
+          <span class="dot" aria-hidden="true"></span>
+          1787.live
+        </div>
+        <h2 class="showcase-name">1787.live</h2>
+        <p class="showcase-tagline">History, live.</p>
+        <p class="showcase-pitch">
+          The 1787 Constitutional Convention replayed as a modern group chat. 10,000 messages from 55 delegates, mapped to present-day dates and streaming in near-realtime. Drop in anytime.
+        </p>
+      </div>
+
+      <div class="showcase-cta">
+        <a href="https://1787.live" target="_blank" rel="noopener noreferrer" class="btn-primary btn-amber" aria-label="Watch 1787.live">
+          Watch Live
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://1787.live" target="_blank" rel="noopener noreferrer" class="showcase-link">1787.live <span aria-hidden="true">&nearr;</span></a>
       </div>
     </div>
   </section>
@@ -1042,42 +1107,12 @@ rel="stylesheet">
         <h2 class="showcase-name">Nervejack</h2>
         <p class="showcase-tagline">Every decision bleeds.</p>
         <p class="showcase-pitch">
-          Nervejack is an <abbr title="Artificial Intelligence">AI</abbr>-driven cyberpunk <abbr title="Role-Playing Game">RPG</abbr> built by Thread Limit and set in the collapsing megastructure of Neo Kowloon. The game features over 160 dynamically-driven <abbr title="Non-Player Characters">NPCs</abbr> spread across 7 distinct sectors, each with their own agendas, memories, and allegiances. Every character thinks for themselves using AI — they remember what you did, hold grudges, and change their behavior based on your choices. Factions track your reputation in real time, and the ripple effects of a single conversation can reshape the political landscape of an entire district. There are no scripted outcomes and no two playthroughs play out the same way. Nervejack is playable now in your browser at nervejack.gg.
+          An <abbr title="Artificial Intelligence">AI</abbr>-driven cyberpunk <abbr title="Role-Playing Game">RPG</abbr> set in the collapsing megastructure of Neo Kowloon. 160+ <abbr title="Non-Player Characters">NPCs</abbr> that remember what you did, hold grudges, and change their behavior. No scripted outcomes.
         </p>
       </div>
 
-      <div class="showcase-stats">
-        <div class="stat">
-          <div class="stat-value">7</div>
-          <div class="stat-label">Sectors</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value">160+</div>
-          <div class="stat-label"><abbr title="Non-Player Characters">NPCs</abbr></div>
-        </div>
-        <div class="stat">
-          <div class="stat-value" aria-label="Infinite">&infin;</div>
-          <div class="stat-label">Playthroughs</div>
-        </div>
-      </div>
-
-      <div class="terminal" role="img" aria-label="Mock terminal showing a Nervejack gameplay session: scanning for contacts in sector 7, finding 3 contacts with 2 hostile, and a wary reputation with the KIRA faction">
-        <div class="terminal-bar" aria-hidden="true">
-          <div class="terminal-dot"></div>
-          <div class="terminal-dot"></div>
-          <div class="terminal-dot"></div>
-        </div>
-        <div class="terminal-body" aria-hidden="true">
-          <div><span class="terminal-prompt">neo-kowloon://</span> <span class="terminal-text">sector_7</span></div>
-          <div><span class="terminal-dim">&gt; scanning local mesh...</span></div>
-          <div><span class="terminal-dim">&gt; 3 contacts found. 2 hostile.</span></div>
-          <div><span class="terminal-dim">&gt; faction_rep [KIRA]: </span><span class="terminal-text">wary</span></div>
-          <div><span class="terminal-prompt">&gt; _</span><span class="terminal-cursor"></span></div>
-        </div>
-      </div>
-
       <div class="showcase-cta">
-        <a href="https://nervejack.gg" target="_blank" rel="noopener noreferrer" class="btn-primary" aria-label="Play Nervejack now">
+        <a href="https://nervejack.gg" target="_blank" rel="noopener noreferrer" class="btn-primary btn-green" aria-label="Play Nervejack now">
           Play Now
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -1097,77 +1132,12 @@ rel="stylesheet">
         <h2 class="showcase-name">Storysplice</h2>
         <p class="showcase-tagline">Your story. Infinite paths.</p>
         <p class="showcase-pitch">
-          Storysplice is a platform for building branching interactive fiction, developed by Thread Limit. Writers use a visual story map to design narrative paths that fork, merge, and loop — creating choose-your-own-adventure experiences with real depth. <abbr title="Artificial Intelligence">AI</abbr> writing tools help fill the spaces between key plot points, generating transitional scenes, dialogue variations, and alternate endings so a single author can produce the volume of content that would normally require an entire writing room. Finished stories are published to a community library where readers can explore and play through them. Storysplice runs entirely in the browser with no downloads or installs required, and is free to start creating at storysplice.app.
+          A platform for building branching interactive fiction. Design narrative paths that fork, merge, and loop — with <abbr title="Artificial Intelligence">AI</abbr> writing tools to help fill the spaces between key plot points.
         </p>
       </div>
 
-      <div class="showcase-features">
-        <div class="feature">
-          <svg class="feature-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <circle cx="4" cy="10" r="2" fill="currentColor"/>
-            <circle cx="16" cy="4" r="2" fill="currentColor"/>
-            <circle cx="16" cy="16" r="2" fill="currentColor"/>
-            <path d="M6 9.5L14 4.5M6 10.5L14 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <span class="feature-label">Visual story map</span>
-        </div>
-        <div class="feature">
-          <svg class="feature-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M12.5 3.5l4 4L7 17H3v-4L12.5 3.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          </svg>
-          <span class="feature-label"><abbr title="Artificial Intelligence">AI</abbr> writing tools</span>
-        </div>
-        <div class="feature">
-          <svg class="feature-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <rect x="2" y="4" width="4" height="12" rx="1" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="8" y="2" width="4" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/>
-            <rect x="14" y="5" width="4" height="11" rx="1" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-          <span class="feature-label">Community library</span>
-        </div>
-      </div>
-
-      <div class="branch-diagram">
-        <svg class="branch-svg-showcase" viewBox="0 0 540 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Branching narrative diagram showing a story that splits from one starting point into multiple paths, each leading to different endings">
-          <path class="branch-line-s" d="M40,100 C90,100 90,100 120,100" />
-          <path class="branch-line-s" d="M120,100 C160,100 170,40 220,40" />
-          <path class="branch-line-s" d="M120,100 C160,100 170,100 220,100" />
-          <path class="branch-line-s" d="M120,100 C160,100 170,160 220,160" />
-          <path class="branch-line-s" d="M220,40 C260,40 270,20 320,20" />
-          <path class="branch-line-s" d="M220,40 C260,40 270,65 320,65" />
-          <path class="branch-line-s" d="M220,100 C280,100 280,100 340,100" />
-          <path class="branch-line-s" d="M220,160 C260,160 270,140 320,140" />
-          <path class="branch-line-s" d="M220,160 C260,160 270,180 320,180" />
-          <path class="branch-line-s" d="M320,20 C370,20 370,12 420,12" />
-          <path class="branch-line-s" d="M320,20 C370,20 370,34 420,34" />
-          <path class="branch-line-s" d="M340,100 C390,100 390,88 440,88" />
-          <path class="branch-line-s" d="M340,100 C390,100 390,114 440,114" />
-          <path class="branch-line-s" d="M320,180 C370,180 370,190 420,190" />
-          <circle class="branch-node" cx="40" cy="100" r="5" />
-          <circle class="branch-node" cx="120" cy="100" r="5" />
-          <circle class="branch-node" cx="220" cy="40" r="5" />
-          <circle class="branch-node" cx="220" cy="100" r="5" />
-          <circle class="branch-node" cx="220" cy="160" r="5" />
-          <circle class="branch-node-hollow" cx="320" cy="20" r="4" />
-          <circle class="branch-node-hollow" cx="320" cy="65" r="4" />
-          <circle class="branch-node-hollow" cx="340" cy="100" r="4" />
-          <circle class="branch-node-hollow" cx="320" cy="140" r="4" />
-          <circle class="branch-node-hollow" cx="320" cy="180" r="4" />
-          <circle class="branch-node-hollow" cx="420" cy="12" r="3" />
-          <circle class="branch-node-hollow" cx="420" cy="34" r="3" />
-          <circle class="branch-node-hollow" cx="440" cy="88" r="3" />
-          <circle class="branch-node-hollow" cx="440" cy="114" r="3" />
-          <circle class="branch-node-hollow" cx="420" cy="190" r="3" />
-          <text class="branch-label" x="30" y="120">START</text>
-          <text class="branch-label" x="108" y="120">CH 1</text>
-          <text class="branch-label" x="208" y="30">A</text>
-          <text class="branch-label" x="208" y="92">B</text>
-          <text class="branch-label" x="208" y="178">C</text>
-        </svg>
-      </div>
-
       <div class="showcase-cta">
-        <a href="https://storysplice.app" target="_blank" rel="noopener noreferrer" class="btn-primary btn-green" aria-label="Start creating on Storysplice">
+        <a href="https://storysplice.app" target="_blank" rel="noopener noreferrer" class="btn-primary" aria-label="Start creating on Storysplice">
           Start Creating
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -1176,82 +1146,6 @@ rel="stylesheet">
     </div>
   </section>
 
-  <!-- TEXTING.VIDEO -->
-  <section class="showcase showcase-texting" id="texting" aria-label="Texting.video project">
-    <div class="container">
-      <div class="showcase-header">
-        <div class="showcase-label">
-          <span class="dot" aria-hidden="true"></span>
-          texting.video
-        </div>
-        <h2 class="showcase-name">Texting.video</h2>
-        <p class="showcase-tagline">Fake texts, real videos.</p>
-        <p class="showcase-pitch">
-          Texting.video is a browser-based tool built by Thread Limit for creating fake text message conversation videos optimized for short-form social platforms like TikTok, Instagram Reels, and YouTube Shorts. Users choose from 8 realistic chat themes — including iMessage, Discord, Slack, Android, Microsoft Teams, Terminal, <abbr title="Japanese Role-Playing Game">JRPG</abbr>, and True Crime — then script a conversation with animated typing indicators, emoji reactions, and read receipts. The finished video exports as MP4 or WebM in vertical format, ready to post. No app install is needed — everything runs in the browser. Texting.video is free to use with WebM exports, and a Pro plan at $9/month unlocks unlimited MP4 exports, link previews, and image attachments. Try it free at texting.video.
-        </p>
-      </div>
-
-      <div class="showcase-stats">
-        <div class="stat">
-          <div class="stat-value">8</div>
-          <div class="stat-label">Chat themes</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value">0</div>
-          <div class="stat-label">Installs needed</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value">:30</div>
-          <div class="stat-label">Avg. export time</div>
-        </div>
-      </div>
-
-      <div class="showcase-features">
-        <div class="feature">
-          <svg class="feature-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M2 7h16" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-          <span class="feature-label">iMessage, Discord, Slack & more</span>
-        </div>
-        <div class="feature">
-          <svg class="feature-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M10 2v16M2 10h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-          <span class="feature-label">Typing indicators & reactions</span>
-        </div>
-        <div class="feature">
-          <svg class="feature-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="feature-label">MP4 & WebM export</span>
-        </div>
-      </div>
-
-      <div class="phone-mockup" role="img" aria-label="Phone mockup showing a fake text conversation between two people">
-        <div class="phone-notch" aria-hidden="true"></div>
-        <div class="phone-screen" aria-hidden="true">
-          <div class="chat-bubble received">hey did you see the new trailer?</div>
-          <div class="chat-bubble sent">wait WHAT</div>
-          <div class="chat-bubble sent">link me rn</div>
-          <div class="chat-typing">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="showcase-cta">
-        <a href="https://texting.video" target="_blank" rel="noopener noreferrer" class="btn-primary btn-blue" aria-label="Try Texting.video">
-          Try It Free
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="https://texting.video" target="_blank" rel="noopener noreferrer" class="showcase-link">texting.video <span aria-hidden="true">&nearr;</span></a>
-      </div>
-    </div>
-  </section>
 
   <!-- CTA / CONTACT -->
   <section class="cta" id="contact" aria-label="Contact">
@@ -1259,7 +1153,7 @@ rel="stylesheet">
       <h2>Want to build<br>something?</h2>
       <p>Let's talk — I'm always up for a good conversation about <abbr title="Artificial Intelligence">AI</abbr>, games, or weird experiments.</p>
       <a href="mailto:colin@threadlimit.co" class="btn-primary">
-        colin@threadlimit.co
+        Say hello
         <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <div class="cta-projects">
@@ -1273,9 +1167,9 @@ rel="stylesheet">
             <span class="link-dot" style="background: var(--green);" aria-hidden="true"></span>
             Storysplice
           </a>
-          <a href="https://texting.video" target="_blank" rel="noopener noreferrer">
-            <span class="link-dot" style="background: var(--blue);" aria-hidden="true"></span>
-            Texting.video
+          <a href="https://1787.live" target="_blank" rel="noopener noreferrer">
+            <span class="link-dot" style="background: var(--amber);" aria-hidden="true"></span>
+            1787.live
           </a>
         </div>
       </div>
@@ -1346,6 +1240,207 @@ rel="stylesheet">
       obs.observe(el);
     });
   }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script>
+(function() {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas || typeof THREE === 'undefined') return;
+
+  // ============ SHARED SETUP ============
+  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: false });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setClearColor(0x09090b, 1);
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(65, 1, 0.1, 150);
+
+  var WIRE_RED = 0xcc3333;
+  var WIRE_DIM = 0x661a1a;
+  var lineMat = new THREE.LineBasicMaterial({ color: WIRE_RED });
+  var lineMatDim = new THREE.LineBasicMaterial({ color: WIRE_DIM });
+
+  function edges(geo) { return new THREE.EdgesGeometry(geo); }
+
+  // ============ SCENE: NATURE ============
+  var sceneNature = {
+    props: [], grid: null, nextZ: 0, zOffset: 0,
+    // Geometries
+    trunkE: edges(new THREE.CylinderGeometry(0.08, 0.14, 5, 4)),
+    canopyE: edges(new THREE.ConeGeometry(1.4, 4, 5)),
+    deadTrunkE: edges(new THREE.CylinderGeometry(0.06, 0.12, 4, 4)),
+    branchE: edges(new THREE.CylinderGeometry(0.02, 0.04, 1.2, 3)),
+    houseE: edges(new THREE.BoxGeometry(2.5, 2, 3)),
+    roofE: edges(new THREE.ConeGeometry(2.2, 1.5, 4)),
+    garageE: edges(new THREE.BoxGeometry(2, 1.5, 2.5)),
+    garageRoofE: edges(new THREE.BoxGeometry(2.2, 0.15, 2.7)),
+    bldgE: [
+      { e: edges(new THREE.BoxGeometry(2.5, 8, 2.5)), h: 4 },
+      { e: edges(new THREE.BoxGeometry(3, 14, 3)), h: 7 },
+      { e: edges(new THREE.BoxGeometry(2.5, 20, 2.5)), h: 10 },
+      { e: edges(new THREE.BoxGeometry(4, 10, 3.5)), h: 5 },
+      { e: edges(new THREE.BoxGeometry(1.8, 16, 1.8)), h: 8 },
+      { e: edges(new THREE.BoxGeometry(3.5, 6, 4)), h: 3 }
+    ],
+    antE: edges(new THREE.CylinderGeometry(0.03, 0.03, 3, 3)),
+    FOREST: 140, SUBURB: 70, CITY: 80, SUBURB2: 70,
+
+    init: function() {
+      var s = this;
+      s.CYCLE = s.FOREST + s.SUBURB + s.CITY + s.SUBURB2;
+      s.props = []; s.zOffset = 0; s.nextZ = 0;
+      scene.fog = new THREE.FogExp2(0x09090b, 0.022);
+      camera.position.set(0, 3.5, 0);
+      camera.rotation.set(0, 0, 0);
+      camera.fov = 65; camera.near = 0.1; camera.far = 120; camera.updateProjectionMatrix();
+      s.grid = new THREE.GridHelper(400, 120, WIRE_DIM, WIRE_DIM);
+      s.grid.material.transparent = true; s.grid.material.opacity = 0.2;
+      scene.add(s.grid);
+      var z = 0;
+      while (z > -180) { s.spawnAt(z); z -= s.getDensity(z) + Math.random() * 1.5; }
+      s.nextZ = z;
+    },
+
+    biome: function(z) {
+      var s = this, pos = ((-z) % s.CYCLE + s.CYCLE) % s.CYCLE;
+      if (pos < s.FOREST) return { b: 0, t: pos / s.FOREST };
+      pos -= s.FOREST;
+      if (pos < s.SUBURB) return { b: 1, t: pos / s.SUBURB };
+      pos -= s.SUBURB;
+      if (pos < s.CITY) return { b: 2, t: pos / s.CITY };
+      pos -= s.CITY;
+      return { b: 3, t: pos / s.SUBURB2 };
+    },
+
+    buildTree: function() {
+      var g = new THREE.Group(), s = this;
+      var trunk = new THREE.LineSegments(s.trunkE, lineMatDim); trunk.position.y = 2.5; g.add(trunk);
+      var canopy = new THREE.LineSegments(s.canopyE, lineMat); canopy.position.y = 6.5; canopy.rotation.y = Math.random() * Math.PI; g.add(canopy);
+      g.scale.setScalar(0.8 + Math.random() * 1.4); return g;
+    },
+    buildDead: function() {
+      var g = new THREE.Group(), s = this;
+      var t = new THREE.LineSegments(s.deadTrunkE, lineMatDim); t.position.y = 2; g.add(t);
+      for (var i = 0, n = 1 + Math.floor(Math.random() * 3); i < n; i++) {
+        var b = new THREE.LineSegments(s.branchE, lineMatDim), sd = Math.random() < 0.5 ? 1 : -1;
+        b.position.set(sd * 0.25, 2.5 + Math.random() * 1.5, Math.random() * 0.3 - 0.15);
+        b.rotation.z = (-0.4 - Math.random() * 0.8) * sd; g.add(b);
+      }
+      g.scale.setScalar(0.8 + Math.random() * 0.8); return g;
+    },
+    buildHouse: function() {
+      var g = new THREE.Group(), s = this;
+      var box = new THREE.LineSegments(s.houseE, lineMat); box.position.y = 1; g.add(box);
+      var roof = new THREE.LineSegments(s.roofE, lineMat); roof.position.y = 2.75; roof.rotation.y = Math.PI / 4; g.add(roof);
+      g.scale.setScalar(0.7 + Math.random() * 0.5); g.rotation.y = Math.random() * 0.3; return g;
+    },
+    buildGarage: function() {
+      var g = this.buildHouse();
+      var gar = new THREE.LineSegments(this.garageE, lineMatDim); gar.position.set(2.2, 0.75, 0.2); g.add(gar);
+      var gr = new THREE.LineSegments(this.garageRoofE, lineMatDim); gr.position.set(2.2, 1.55, 0.2); g.add(gr);
+      return g;
+    },
+    buildBldg: function() {
+      var g = new THREE.Group(), s = this, pick = s.bldgE[Math.floor(Math.random() * s.bldgE.length)];
+      var b = new THREE.LineSegments(pick.e, lineMat); b.position.y = pick.h; g.add(b);
+      if (pick.h > 6 && Math.random() > 0.4) { var a = new THREE.LineSegments(s.antE, lineMatDim); a.position.y = pick.h * 2 + 1.5; g.add(a); }
+      g.scale.setScalar(0.7 + Math.random() * 0.8); g.rotation.y = Math.random() * 0.2; return g;
+    },
+
+    spawn: function(z) {
+      var s = this, bi = s.biome(z), b = bi.b, t = bi.t, r = Math.random();
+      if (b === 0) {
+        if (t < 0.35) return s.buildTree();
+        if (t < 0.55) return r < 0.6 ? s.buildTree() : s.buildDead();
+        if (t < 0.75) return r < 0.3 ? s.buildTree() : s.buildDead();
+        if (t < 0.9) return r < 0.1 ? s.buildTree() : (r < 0.7 ? s.buildDead() : s.buildHouse());
+        return r < 0.4 ? s.buildDead() : (r < 0.7 ? s.buildHouse() : s.buildGarage());
+      }
+      if (b === 1) {
+        if (t < 0.15) return r < 0.3 ? s.buildDead() : (r < 0.7 ? s.buildHouse() : s.buildGarage());
+        if (t < 0.5) return r < 0.1 ? s.buildDead() : (r < 0.6 ? s.buildHouse() : s.buildGarage());
+        if (t < 0.8) return r < 0.55 ? s.buildHouse() : s.buildGarage();
+        return r < 0.3 ? s.buildHouse() : (r < 0.5 ? s.buildGarage() : s.buildBldg());
+      }
+      if (b === 2) {
+        if (t < 0.15) return r < 0.2 ? s.buildHouse() : s.buildBldg();
+        if (t < 0.8) return s.buildBldg();
+        return r < 0.25 ? s.buildHouse() : (r < 0.4 ? s.buildGarage() : s.buildBldg());
+      }
+      if (b === 3) {
+        if (t < 0.2) return r < 0.2 ? s.buildBldg() : (r < 0.6 ? s.buildHouse() : s.buildGarage());
+        if (t < 0.6) return r < 0.5 ? s.buildHouse() : (r < 0.8 ? s.buildGarage() : s.buildTree());
+        if (t < 0.85) return r < 0.3 ? s.buildHouse() : (r < 0.5 ? s.buildGarage() : s.buildTree());
+        return r < 0.15 ? s.buildHouse() : s.buildTree();
+      }
+      return null;
+    },
+
+    getDensity: function(z) { var b = this.biome(z).b; return b === 0 ? 1.5 : b === 2 ? 1.2 : 2; },
+
+    spawnAt: function(z) {
+      var s = this, g = s.spawn(z); if (!g) return;
+      var b = s.biome(z).b, x, att = 0, narrow = canvas.parentElement.clientWidth < 600;
+      var minS = narrow ? 3 : 6, maxS = narrow ? 15 : 28;
+      do { var sd = Math.random() < 0.5 ? -1 : 1; x = b === 2 ? sd * ((narrow ? 2 : 4) + Math.random() * (narrow ? 10 : 20)) : sd * (minS + Math.random() * maxS); att++; }
+      while (att < 12 && !function() { for (var i = 0; i < s.props.length; i++) { var dx = s.props[i].position.x - x, dz = s.props[i].position.z - z; if (dx*dx+dz*dz < 4) return false; } return true; }());
+      g.position.set(x, 0, z); scene.add(g); s.props.push(g);
+    },
+
+    update: function(delta) {
+      var s = this; s.zOffset -= 4 * delta; camera.position.z = s.zOffset;
+      while (s.nextZ > s.zOffset - 180) { var d = s.getDensity(s.nextZ); s.nextZ -= d + Math.random() * 1.5; s.spawnAt(s.nextZ); }
+      for (var i = s.props.length - 1; i >= 0; i--) { if (s.props[i].position.z > s.zOffset + 15) { scene.remove(s.props[i]); s.props.splice(i, 1); } }
+    },
+
+    cleanup: function() {
+      var s = this;
+      for (var i = 0; i < s.props.length; i++) scene.remove(s.props[i]);
+      s.props = [];
+      if (s.grid) { scene.remove(s.grid); s.grid = null; }
+    }
+  };
+
+  // --- Init nature scene ---
+  sceneNature.init();
+
+  // --- Resize ---
+  function resize() {
+    var hero = canvas.parentElement;
+    var w = hero.clientWidth, h = hero.clientHeight;
+    renderer.setSize(w, h, false);
+    canvas.width = w * Math.min(window.devicePixelRatio, 2);
+    canvas.height = h * Math.min(window.devicePixelRatio, 2);
+    camera.aspect = w / h;
+    camera.fov = w < 600 ? 80 : 65;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // --- Animation ---
+  var running = true;
+  var lastTime = performance.now();
+
+  function animate(now) {
+    if (!running) return;
+    requestAnimationFrame(animate);
+    var delta = Math.min((now - lastTime) / 1000, 0.1);
+    lastTime = now;
+    sceneNature.update(delta);
+    renderer.render(scene, camera);
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      if (!running) { running = true; lastTime = performance.now(); requestAnimationFrame(animate); }
+    } else { running = false; }
+  }, { threshold: 0 });
+  observer.observe(canvas.parentElement);
+
+  requestAnimationFrame(animate);
+})();
 </script>
 
 </body>
